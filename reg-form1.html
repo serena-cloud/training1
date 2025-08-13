@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f3f4f6; }
+        .form-container { max-width: 600px; margin: 0 auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .form-header { background: #4f46e5; color: white; padding: 15px; border-radius: 8px 8px 0 0; }
+        input, select, textarea { width: 100%; padding: 8px; margin: 5px 0 15px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        .btn-submit { background: #4f46e5; color: white; }
+        .btn-reset { background: #ddd; }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="form-container bg-white rounded-xl overflow-hidden">
+            <div class="form-header text-white py-6 px-8">
+                <h1 class="text-3xl font-bold">Student Registration Form</h1>
+                <p class="mt-2">Fill in your details to complete the registration</p>
+            </div>
+
+            <form id="registrationForm" action="https://formspree.io/f/xpwlbvwj" method="POST" class="p-8 space-y-6">
+                <div>
+                    <label>Full Name *</label>
+                    <input type="text" name="name" required>
+
+                    <label>Age *</label> 
+                    <input type="number" name="age" min="16" max="35" required>
+
+                    <label>Branch *</label>
+                    <select name="branch" required>
+                            <option value="">Select Branch</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Electrical Engineering">Electrical Engineering</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Electronics Engineering">Electronics Engineering</option>
+                        </select>
+                    </div>
+
+                    <!-- Year Field -->
+                    <div>
+                        <label for="year" class="block text-sm font-medium text-gray-700 mb-1">Year *</label>
+                        <select id="year" name="year" required 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                            <option value="">Select Year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+
+                    <!-- Specialization Field -->
+                    <div>
+                        <label for="specialization" class="block text-sm font-medium text-gray-700 mb-1">Specialization</label>
+                        <input type="text" id="specialization" name="specialization" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                    </div>
+
+                    <!-- Gender Field -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Gender *</label>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <input type="radio" id="male" name="gender" value="Male" required 
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                <label for="male" class="ml-2 text-sm text-gray-700">Male</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="female" name="gender" value="Female" 
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                <label for="female" class="ml-2 text-sm text-gray-700">Female</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="other" name="gender" value="Other" 
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                <label for="other" class="ml-2 text-sm text-gray-700">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Field -->
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address *</label>
+                    <textarea id="address" name="address" rows="3" required 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"></textarea>
+                </div>
+
+                <!-- Courses Offered Field -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Courses Offered (Select at least one) *</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="checkbox-item flex items-center bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition">
+                            <input type="checkbox" id="typescript" name="courses" value="TypeScript" 
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 mr-2">
+                            <label for="typescript" class="text-sm text-gray-700">TypeScript</label>
+                        </div>
+                        <div class="checkbox-item flex items-center bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition">
+                            <input type="checkbox" id="python" name="courses" value="Python" 
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 mr-2">
+                            <label for="python" class="text-sm text-gray-700">Python</label>
+                        </div>
+                        <div class="checkbox-item flex items-center bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition">
+                            <input type="checkbox" id="mysql" name="courses" value="MySQL" 
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 mr-2">
+                            <label for="mysql" class="text-sm text-gray-700">MySQL</label>
+                        </div>
+                        <div class="checkbox-item flex items-center bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition">
+                            <input type="checkbox" id="projectmanagement" name="courses" value="Project Management" 
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 mr-2">
+                            <label for="projectmanagement" class="text-sm text-gray-700">Project Management</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Buttons -->
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
+                    <button type="submit" class="btn-submit text-white py-3 px-6 rounded-lg font-medium shadow-md">
+                        Submit Registration
+                    </button>
+                    <button type="reset" class="btn-reset bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium hover:bg-gray-300 shadow-md">
+                        Reset Form
+                    </button>
+                </div>
+                <input type="hidden" name="_replyto" value="chaudharysrishti84.com">
+                <input type="hidden" name="_cc" value="chaudharysrishti84.com">
+            </form>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+            <div class="bg-white rounded-xl p-6 max-w-sm mx-4">
+                <div class="flex justify-end">
+                    <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="text-center mt-2">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                        <svg class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mt-3">Registration Successful!</h3>
+                    <div class="mt-2 text-sm text-gray-500">
+                        <p>Your registration has been submitted successfully.</p>
+                        <p class="mt-2">An email has been sent to the administrators.</p>
+                    </div>
+                    <div class="mt-4">
+                        <button onclick="closeModal()" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
+                            Got it, thanks!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
